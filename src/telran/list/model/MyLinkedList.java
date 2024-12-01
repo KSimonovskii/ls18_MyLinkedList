@@ -103,16 +103,18 @@ public class MyLinkedList<E> implements IList<E> {
     public Iterator<E> iterator() {
 
         Iterator <E> listIterator = new Iterator<E>() {
-            private int counter;
+            private Node<E> node = first;
 
             @Override
             public boolean hasNext() {
-                return counter < size;
+                return node != null;
             }
 
             @Override
             public E next() {
-                return getNodeByIndex(counter++).payload;
+                E res = node.payload;
+                node = node.next;
+                return res;
             }
         };
 
