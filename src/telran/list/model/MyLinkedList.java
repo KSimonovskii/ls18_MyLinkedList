@@ -19,7 +19,7 @@ public class MyLinkedList<E> implements IList<E> {
     //O(n)
     @Override
     public boolean add(int index, E element) {
-        if (index == size) { //O(n)
+        if (index == size) { //O(1)
             Node<E> newNode = new Node<>(last, element, null);
             if (last != null) {
                 last.next = newNode;
@@ -150,15 +150,15 @@ public class MyLinkedList<E> implements IList<E> {
     //O(n)
     @Override
     public void clear(){
-        while (size > 1){
-            Node<E> node = first;
-            first = first.next;
-            if (first.next != null) {
-                first.next.prev = null;
-            }
-            node = null;
-            size--;
-        }
+//        while (size > 1){
+//            Node<E> node = first;
+//            first = first.next;
+//            if (first.next != null) {
+//                first.next.prev = null;
+//            }
+//            node = null;
+//            size--;
+//        }
 
         first = null;
         last = null;
